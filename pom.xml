@@ -27,7 +27,7 @@
     </parent>
 
     <artifactId>connector-smartrecruiters</artifactId>
-    <version>0.9.0.0-SNAPSHOT</version>
+    <version>1.0.0.0</version>
     <packaging>jar</packaging>
 
     <name>SmartRecruiters Connector</name>

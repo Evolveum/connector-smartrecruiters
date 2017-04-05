@@ -351,6 +351,26 @@ public class TestClient {
     }
 
     @Test
+    public void findByMailSpecial() {
+        final int[] count = {0};
+        ResultsHandler rh = new ResultsHandler() {
+            @Override
+            public boolean handle(ConnectorObject connectorObject) {
+                LOG.ok("result {0}", connectorObject);
+                count[0]++;
+                return true;
+            }
+        };
+
+        // searchByUId
+        SmartRecruitersFilter searchByUid = new SmartRecruitersFilter();
+        searchByUid.byEmailAddress = "egsmartrecruiters+dkrjukovs_evolutiongaming.com@gmail.com";
+        conn.executeQuery(accountObjectClass, searchByUid, rh, null);
+
+        Assert.assertTrue(count[0] > 0, "User not found: " + searchByUid.byUid);
+    }
+
+    @Test
     public void findAll() {
         final int[] count = {0};
         ResultsHandler rh = new ResultsHandler() {
